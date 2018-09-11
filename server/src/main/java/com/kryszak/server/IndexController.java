@@ -10,4 +10,9 @@ public class IndexController {
     public String get() {
         return "index.html";
     }
+
+    @GetMapping(value = "/{path:[^\\.]*}")
+    public String redirect() {
+        return "forward:/";
+    }
 }
