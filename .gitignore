@@ -1,0 +1,33 @@
+**/.gradle
+**/build/
+
+### STS ###
+**/.apt_generated
+**/.classpath
+**/.factorypath
+**/.project
+**/.settings
+**/.springBeans
+**/.sts4-cache
+
+### IntelliJ IDEA ###
+**/.idea
+**/*.iws
+**/*.iml
+**/*.ipr
+**/out/
+
+**/dist/
+
+**/.DS_Store
+**/node_modules/
+**/dist/
+**/npm-debug.log
+**/yarn-error.log
+
+# Editor directories and files
+**/.idea
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln

@@ -1,0 +1,53 @@
+plugins {
+    id 'org.springframework.boot' version '2.0.4.RELEASE'
+}
+
+project(':server') {
+    buildscript {
+        ext {
+            springBootVersion = '2.0.4.RELEASE'
+        }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    bootJar {
+        baseName = 'server'
+        version = '0.0.1-SNAPSHOT'
+        into('static/dist') {
+            from "${project(':ui').projectDir}/dist"
+        }
+        into('static/public') {
+            from "${project(':ui').projectDir}/public"
+        }
+        into('static') {
+            from "${project(':ui').projectDir}/index.html"
+        }
+    }
+
+    springBoot {
+        mainClassName = 'com.kryszak.server.ServerApplication'
+    }
+
+    group = 'com.kryszak'
+    sourceCompatibility = 1.8
+
+    project.buildDir = 'build'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile project(':ui')
+        compile('org.springframework.boot:spring-boot-starter-actuator')
+        compile('org.springframework.boot:spring-boot-starter-aop')
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compileOnly('org.projectlombok:lombok:1.16.20')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}
