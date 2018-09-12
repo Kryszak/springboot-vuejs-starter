@@ -15,7 +15,9 @@ project(':server') {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'com.palantir.docker'
 
-    task('copyFrontend', type: Copy) {
+    bootJar {
+        baseName = 'server'
+        version = '0.0.1-SNAPSHOT'
         into('static/dist') {
             from "${project(':ui').projectDir}/dist"
         }
@@ -25,12 +27,6 @@ project(':server') {
         into('static') {
             from "${project(':ui').projectDir}/index.html"
         }
-    }
-
-    bootJar {
-        baseName = 'server'
-        version = '0.0.1-SNAPSHOT'
-        copyFrontend
     }
 
     springBoot {
