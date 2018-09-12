@@ -43,7 +43,6 @@ project(':server') {
         dependsOn build
         name "${project.group}/myapp"
         files '.'
-//        buildArgs(['JAR_FILE': "${bootJar.archiveName}"])
     }
 
     repositories {
