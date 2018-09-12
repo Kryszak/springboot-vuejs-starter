@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM frolvlad/alpine-oraclejre8:slim
 LABEL maintainer="prajskrzysztof@gmail.com"
 
 EXPOSE 8080
