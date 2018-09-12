@@ -18,6 +18,7 @@ project(':server') {
     bootJar {
         baseName = 'server'
         version = '0.0.1-SNAPSHOT'
+
         into('static/dist') {
             from "${project(':ui').projectDir}/dist"
         }
@@ -50,7 +51,9 @@ project(':server') {
     }
 
     dependencies {
-        compile project(':ui')
+        if (!project.hasProperty('skipFrontend')) {
+            compile project(':ui')
+        }
         compile('org.springframework.boot:spring-boot-starter-actuator')
         compile('org.springframework.boot:spring-boot-starter-aop')
         compile('org.springframework.boot:spring-boot-starter-web')
