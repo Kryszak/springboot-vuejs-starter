@@ -1,2 +1,2 @@
 logging:
-  file: logs/server.log
+  config: classpath:logback.xml
