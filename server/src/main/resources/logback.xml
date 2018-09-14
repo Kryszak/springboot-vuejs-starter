@@ -5,7 +5,7 @@
     <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
     <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
 
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%25thread] [${LOG_LEVEL_PATTERN:-%5p}] [%50(%logger{40})]: %msg %n"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%15thread] [${LOG_LEVEL_PATTERN:-%5p}] [%50(%logger{40})]: %msg %n"/>
     <property name="LOG_FILE" value="logs/server.log"/>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -23,7 +23,7 @@
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%25thread] [%clr(${LOG_LEVEL_PATTERN:-%5p})] [%clr(%50(%logger{40})){cyan}]: %msg %n</pattern>
+            <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%15thread] [%clr(${LOG_LEVEL_PATTERN:-%5p})] [%clr(%50(%logger{40})){cyan}]: %msg %n</pattern>
             <charset>utf8</charset>
         </encoder>
     </appender>
