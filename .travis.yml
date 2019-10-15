@@ -20,7 +20,3 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script: gradle build --info --stacktrace --max-workers=1 --no-daemon --build-cache
-
-after_success:
-  - gradle jacocoTestReport
-  - bash <(curl -s https://codecov.io/bash)
